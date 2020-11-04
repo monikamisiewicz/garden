@@ -71,7 +71,7 @@
           <li><a href="#gallery">Galeria</a></li>
           <li><a href="#chefs">Chefs</a></li>
           <li><a href="#contact">Contact</a></li>
-          <li class="book-a-table text-center"><a href="#book-a-table">Dodaj roślinę</a></li>
+          <li class="book-a-table text-center"><a th:href="@{/add-plant}">Dodaj roślinę</a></li>
         </ul>
       </nav><!-- .nav-menu -->
 
@@ -88,7 +88,7 @@
           <h1>Witaj w swoim<span>Ogrodzie</span></h1>
 
           <div class="btns">
-            <a href="#menu" class="btn-menu animated fadeInUp scrollto">Rośliny</a>
+            <a href="#menu" class="btn-menu animated fadeInUp scrollto">Twoje rośliny</a>
             <a href="#book-a-table" class="btn-book animated fadeInUp scrollto">Dodaj roślinkę</a>
           </div>
         </div>
@@ -111,8 +111,7 @@
         <div class="row">
           <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="100">
             <div class="about-img">
-<!--              <img src="assets/img/about.jpg" alt="">-->
-              <img src="assets/img/garden1.jpg" alt="">
+              <img th:src="@{assets/img/garden1.jpg}" alt="">
             </div>
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
@@ -169,14 +168,12 @@
 
         <div class="row menu-container" data-aos="fade-up" data-aos-delay="200">
 
-          <div class="col-lg-6 menu-item filter-starters">
-            <img src="assets/img/menu/lobster-bisque.jpg" class="menu-img" alt="">
+          <div th:each="plant: ${plants}" class="col-lg-6 menu-item filter-starters">
+            <img th:src="@{assets/img/menu/lobster-bisque.jpg}" class="menu-img" alt="">
             <div class="menu-content">
-              <a href="#">Lobster Bisque</a><span>$5.95</span>
+              <a th:text="${plant.name}"></a><span th:text="${plant.categories}"></span>
             </div>
-            <div class="menu-ingredients">
-              Lorem, deren, trataro, filede, nerada
-            </div>
+            <div class="menu-ingredients" th:text="${plant.description}"></div>
           </div>
 
           <div class="col-lg-6 menu-item filter-specialty">

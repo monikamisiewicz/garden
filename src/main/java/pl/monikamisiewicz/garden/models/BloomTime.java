@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Getter
@@ -28,8 +29,21 @@ public class BloomTime extends AbstractEntity {
 
     @Override
     public String toString() {
-        return "BloomTime{" +
-                "month='" + month + '\'' +
-                '}';
+        return this.month;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof BloomTime)) return false;
+        if (!super.equals(o)) return false;
+        BloomTime bloomTime = (BloomTime) o;
+        return Objects.equals(month, bloomTime.month) &&
+                Objects.equals(plants, bloomTime.plants);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), month, plants);
     }
 }

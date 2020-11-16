@@ -1,6 +1,5 @@
 package pl.monikamisiewicz.garden.models;
 
-import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -51,12 +51,16 @@ public class Plant extends AbstractEntity {
     @Column(name = "cultivation")
     private String cultivation;
 
+//    @NotNull
+//    @ManyToMany
+//    @JoinTable(name = "plant_categories",
+//            joinColumns = @JoinColumn(name = "plant_id"),
+//            inverseJoinColumns = @JoinColumn(name = "category_id"))
+//    private Set<Category> categories = new HashSet<>();
+
     @NotNull
-    @ManyToMany
-    @JoinTable(name = "plant_categories",
-            joinColumns = @JoinColumn(name = "plant_id"),
-            inverseJoinColumns = @JoinColumn(name = "category_id"))
-    private Set<Category> categories = new HashSet<>();
+    @ManyToOne
+    private Category category;
 
     @ManyToMany
     @JoinTable(name = "plant_exposures",
@@ -70,7 +74,7 @@ public class Plant extends AbstractEntity {
             inverseJoinColumns = @JoinColumn(name = "bloomtime_id"))
     private Set<BloomTime> bloomTimes = new HashSet<>();
 
-    @NotNull
+//    @NotNull
     @ManyToOne
     private Status status;
 

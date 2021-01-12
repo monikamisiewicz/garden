@@ -1,9 +1,9 @@
-package pl.monikamisiewicz.garden.services;
+package pl.monikamisiewicz.garden.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import pl.monikamisiewicz.garden.models.BloomTime;
-import pl.monikamisiewicz.garden.repositories.BloomTimeRepository;
+import pl.monikamisiewicz.garden.model.BloomTime;
+import pl.monikamisiewicz.garden.repository.BloomTimeRepository;
 
 import java.util.List;
 import java.util.Optional;

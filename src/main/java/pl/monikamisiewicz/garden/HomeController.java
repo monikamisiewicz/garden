@@ -4,8 +4,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import pl.monikamisiewicz.garden.models.Plant;
-import pl.monikamisiewicz.garden.services.PlantService;
+import pl.monikamisiewicz.garden.model.Plant;
+import pl.monikamisiewicz.garden.service.PlantService;
 
 import java.util.List;
 

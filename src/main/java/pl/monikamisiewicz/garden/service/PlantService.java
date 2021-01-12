@@ -1,9 +1,9 @@
-package pl.monikamisiewicz.garden.services;
+package pl.monikamisiewicz.garden.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import pl.monikamisiewicz.garden.models.Plant;
-import pl.monikamisiewicz.garden.repositories.PlantRepository;
+import pl.monikamisiewicz.garden.model.Plant;
+import pl.monikamisiewicz.garden.repository.PlantRepository;
 
 import java.util.List;
 import java.util.Optional;

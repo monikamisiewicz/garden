@@ -1,4 +1,4 @@
-package pl.monikamisiewicz.garden.models;
+package pl.monikamisiewicz.garden.model;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -7,7 +7,7 @@ import javax.persistence.MappedSuperclass;
 import java.util.Objects;
 
 @MappedSuperclass
-public abstract class AbstractEntity {
+public class AbstractEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +18,7 @@ public abstract class AbstractEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         AbstractEntity that = (AbstractEntity) o;
-        return id.equals(that.id);
+        return Objects.equals(id, that.id);
     }
 
     @Override

@@ -1,12 +1,12 @@
-package pl.monikamisiewicz.garden.controllers;
+package pl.monikamisiewicz.garden.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import pl.monikamisiewicz.garden.models.*;
-import pl.monikamisiewicz.garden.services.*;
+import pl.monikamisiewicz.garden.model.*;
+import pl.monikamisiewicz.garden.service.*;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -29,7 +29,7 @@ public class PlantController {
     }
 
     @PostMapping("/save-plant")
-    public String savePlant(@ModelAttribute("plant") @Valid Plant plant, BindingResult bindingResult) {
+    public String savePlant(@Valid Plant plant, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "add-plant";
         }

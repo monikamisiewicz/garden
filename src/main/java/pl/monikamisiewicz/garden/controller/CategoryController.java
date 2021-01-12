@@ -1,4 +1,4 @@
-package pl.monikamisiewicz.garden.controllers;
+package pl.monikamisiewicz.garden.controller;
 
 import org.springframework.stereotype.Controller;
 

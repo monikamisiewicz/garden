@@ -1,4 +1,4 @@
-package pl.monikamisiewicz.garden.models;
+package pl.monikamisiewicz.garden.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.util.HashSet;
 import java.util.Set;
@@ -19,8 +18,8 @@ import java.util.Set;
 @Table(name = "plant")
 public class Plant extends AbstractEntity {
 
-    @NotNull
-    @Min(value = 2, message = "Nazwa musi mieć min. 2 znaki")
+//    @NotNull
+//    @Min(value = 2, message = "Nazwa musi mieć min. 2 znaki")
     @Column(name = "name")
     private String name;
 
@@ -52,15 +51,12 @@ public class Plant extends AbstractEntity {
     private String cultivation;
 
 //    @NotNull
-//    @ManyToMany
-//    @JoinTable(name = "plant_categories",
-//            joinColumns = @JoinColumn(name = "plant_id"),
-//            inverseJoinColumns = @JoinColumn(name = "category_id"))
-//    private Set<Category> categories = new HashSet<>();
-
-    @NotNull
     @ManyToOne
     private Category category;
+
+//    @NotNull
+    @ManyToOne
+    private Status status;
 
     @ManyToMany
     @JoinTable(name = "plant_exposures",
@@ -73,9 +69,5 @@ public class Plant extends AbstractEntity {
             joinColumns = @JoinColumn(name = "plant_id"),
             inverseJoinColumns = @JoinColumn(name = "bloomtime_id"))
     private Set<BloomTime> bloomTimes = new HashSet<>();
-
-//    @NotNull
-    @ManyToOne
-    private Status status;
 
 }

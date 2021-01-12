@@ -1,4 +1,4 @@
-package pl.monikamisiewicz.garden.models;
+package pl.monikamisiewicz.garden.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,8 +22,6 @@ public class Status extends AbstractEntity {
 
     @Override
     public String toString() {
-        return "Status{" +
-                "name='" + name + '\'' +
-                '}';
+        return name;
     }
 }

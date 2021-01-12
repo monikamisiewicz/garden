@@ -1,8 +1,8 @@
-package pl.monikamisiewicz.garden.repositories;
+package pl.monikamisiewicz.garden.repository;
 
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import pl.monikamisiewicz.garden.models.BloomTime;
+import pl.monikamisiewicz.garden.model.BloomTime;
 
 public interface BloomTimeRepository extends JpaRepository<BloomTime, Long > {
 }

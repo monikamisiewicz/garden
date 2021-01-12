@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Garden</title>
+    <meta content="" name="descriptison">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link th:href="@{assets/img/favicon.png}" rel="icon">
+    <link th:href="@{assets/img/apple-touch-icon.png}" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="@{https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i}" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link th:href="@{assets/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{assets/vendor/icofont/icofont.min.css}" rel="stylesheet">
+    <link th:href="@{assets/vendor/boxicons/css/boxicons.min.css}" rel="stylesheet">
+    <link th:href="@{assets/vendor/animate.css/animate.min.css}" rel="stylesheet">
+    <link th:href="@{assets/vendor/owl.carousel/assets/owl.carousel.min.css}" rel="stylesheet">
+    <link th:href="@{assets/vendor/venobox/venobox.css}" rel="stylesheet">
+    <link th:href="@{assets/vendor/aos/aos.css}" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link th:href="@{assets/css/style.css}" rel="stylesheet">
+
+    <!-- =======================================================
+    * Template Name: Restaurantly - v1.1.0
+    * Template URL: https://bootstrapmade.com/restaurantly-restaurant-template/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+</head>
+
+<body>
+
+<!-- ======= Top Bar ======= -->
+<div id="topbar" class="d-flex align-items-center fixed-top">
+    <div class="container d-flex">
+        <div class="contact-info mr-auto">
+            <span class="d-none d-lg-inline-block"><i class="icofont-clock-time icofont-rotate-180"></i> tu wyświetlic dzisiejszą datę</span>
+        </div>
+        <div class="languages">
+            <ul>
+                <li>En</li>
+                <li><a href="#">Pl</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+        <h1 class="logo mr-auto"><a href="index.html">Garden</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!--       <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+        <nav class="nav-menu d-none d-lg-block">
+            <ul>
+                <li class="active"><a th:href="@{/}">Strona główna</a></li>
+                <li><a href="#menu">Rośliny</a></li>
+            </ul>
+        </nav><!-- .nav-menu -->
+
+    </div>
+</header><!-- End Header -->
+
+
+<main id="main">
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center">
+        <div class="container position-relative text-center text-lg-left" data-aos="zoom-in" data-aos-delay="100">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h1>Welcome to your<span>Garden</span></h1>
+                    <h1>Witaj w swoim<span>Ogrodzie</span></h1>
+
+                </div>
+                <div class="col-lg-4 d-flex align-items-center justify-content-center" data-aos="zoom-in" data-aos-delay="200">
+                    <!--          <a href="https://www.youtube.com/watch?v=GlrxcuEDyF8" class="venobox play-btn" data-vbtype="video" data-autoplay="true"></a>-->
+                    <a href="https://https://www.youtube.com/watch?v=_T5AWRTSpdw" class="venobox play-btn" data-vbtype="video" data-autoplay="true"></a>
+                </div>
+
+            </div>
+        </div>
+    </section><!-- End Hero -->
+
+    <!-- ======= Book A Table Section ======= -->
+    <section id="book-a-table" class="book-a-table">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>Nowa roślina</h2>
+                <p>Dodaj roślinkę</p>
+            </div>
+
+            <form th:action="@{/save-plant}" th:object="${plant}" method="post" role="form" class="php-email-form" data-aos="fade-up" data-aos-delay="100">
+                <div class="form-row">
+                    <div class="col-lg-4 col-md-6 form-group">
+                        <label for="name"></label>
+                        <input type="text" name="name" class="form-control" id="name" th:field="*{name}" placeholder="Nazwa">
+                        <span class="error-msg" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 form-group">
+                        <label for="soil"></label>
+                        <input type="text" name="soil" class="form-control" id="soil" th:field="*{soil}" placeholder="Gleba">
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 form-group">
+                        <label for="humidity"></label>
+                        <input type="text" name="humidity" class="form-control" id="humidity" th:field="*{humidity}" placeholder="Wilgotność">
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 form-group">
+                        <label for="structure"></label>
+                        <input type="text" name="structure" class="form-control" id="structure" th:field="*{structure}" placeholder="Pokrój">
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 form-group">
+                        <label for="flowers"></label>
+                        <input type="text" name="flowers" class="form-control" id="flowers" th:field="*{flowers}" placeholder="Kwiaty">
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 form-group">
+                        <label for="leaves"></label>
+                        <input type="text" name="leaves" class="form-control" id="leaves" th:field="*{leaves}" placeholder="Liście">
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 form-group">
+                        <label for="size">
+                        </label><input type="text" name="size" class="form-control" id="size" th:field="*{size}" placeholder="Docelowa wysokość">
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <label>
+                        <textarea class="form-control" name="description" rows="5" placeholder="Opis" th:field="*{description}"></textarea>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <textarea class="form-control" name="cultivation" rows="5" placeholder="Uprawa" th:field="*{cultivation}"></textarea>
+                    </label>
+                </div>
+
+<!--                <div>-->
+<!--                    <div class="form-group">-->
+<!--                        <h3>KATEGORIA</h3>-->
+<!--                        <label for="categories"></label>-->
+<!--                        <input type="checkbox" name="categories" class="form-control" id="categories"-->
+<!--                                                               th:each="category: ${categories}"-->
+<!--                                                               th:text="${category.name}"-->
+<!--                                                               th:value="${category.id}"-->
+<!--                                                               th:field="*{categories}"/>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+
+                <div>
+                    <div class="form-group">
+                        <label for="exposures">STANOWISKO</label>
+                        <input type="checkbox" name="exposures" class="form-control" id="exposures"
+                               th:each="exposure: ${exposures}"
+                               th:text="${exposure.name}"
+                               th:value="${exposure.id}"
+                               th:field="*{exposures}">
+                    </div>
+                </div>
+
+                <div>
+                    <h5>TERMIN KWITNIENIA</h5>
+                    <div class="form-group" th:each="bloomTime: ${bloomTimes}">
+
+<!--                        <label for="exposures">TERMIN KWITNIENIA</label>-->
+<!--                        <input type="checkbox" name="bloomTimes" class="form-control" id="bloomTimes"-->
+<!--                               th:each="bloomTime: ${bloomTimes}"-->
+<!--                               th:text="${bloomTime.month}"-->
+<!--                               th:value="${bloomTime.id}"-->
+<!--                               th:field="*{bloomTimes}">-->
+
+
+                        <input type="checkbox" name="bloomTimes" class="form-control" id="bloomTimes"
+
+                                                               th:value="${bloomTime.id}"
+                                                               th:field="*{bloomTimes}">
+                        <label th:text="${bloomTime.month}"></label>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="form-group">
+                        <label for="category"></label>
+                        <select name="category" class="form-control" id="category" th:field="*{category.id}">
+                            <option th:text="Kategoria" th:value="null"></option>
+                            <option th:each="category : ${categories}"
+                                    value="${category.id}"
+                                    th:text="${category.name}">
+                            </option>
+                        </select>
+                        <span class="error-msg" th:if="${#fields.hasErrors('category')}"
+                              th:errors="*{category}"></span>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="form-group">
+                        <label for="status"></label>
+                        <select name="status" class="form-control" id="status" th:field="*{status.id}">
+                            <option th:text="Status" th:value="null"></option>
+                            <option th:each="status : ${statuses}"
+                                    value="${status.id}"
+                                    th:text="${status.name}">
+                            </option>
+                        </select>
+                        <span class="error-msg" th:if="${#fields.hasErrors('status')}"
+                              th:errors="*{status}"></span>
+                    </div>
+                </div>
+
+
+
+<!--                <div class="mb-3">-->
+<!--                    <div class="loading">Loading</div>-->
+<!--                    <div class="error-message"></div>-->
+<!--                    <div class="sent-message">Your booking request was sent. We will call back or send an Email to confirm your reservation. Thank you!</div>-->
+<!--                </div>-->
+                <div class="text-center"><button type="submit">Dodaj</button></div>
+            </form>
+
+        </div>
+    </section><!-- End Book A Table Section -->
+
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<footer id="footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-info">
+                        <h3>Restaurantly</h3>
+                        <p>
+                            A108 Adam Street <br>
+                            NY 535022, USA<br><br>
+                            <strong>Phone:</strong> +1 5589 55488 55<br>
+                            <strong>Email:</strong> info@example.com<br>
+                        </p>
+                        <div class="social-links mt-3">
+                            <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                            <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                            <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                            <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                            <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 footer-links">
+                    <h4>Useful Links</h4>
+                    <ul>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 col-md-6 footer-newsletter">
+                    <h4>Our Newsletter</h4>
+                    <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+                    <form action="" method="post">
+                        <input type="email" name="email"><input type="submit" value="Subscribe">
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="copyright">
+            &copy; Copyright <strong><span>Garden 2020</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+            <!-- All the links in the footer should remain intact. -->
+            <!-- You can delete the links only if you purchased the pro version. -->
+            <!-- Licensing information: https://bootstrapmade.com/license/ -->
+            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/restaurantly-restaurant-template/ -->
+            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </div>
+    </div>
+</footer><!-- End Footer -->
+
+<div id="preloader"></div>
+<a href="#" class="back-to-top"><i class="bx bx-up-arrow-alt"></i></a>
+
+<!-- Vendor JS Files -->
+<script th:src="@{assets/vendor/jquery/jquery.min.js}"></script>
+<script th:src="@{assets/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{assets/vendor/jquery.easing/jquery.easing.min.js}"></script>
+<script th:src="@{assets/vendor/php-email-form/validate.js}"></script>
+<script th:src="@{assets/vendor/owl.carousel/owl.carousel.min.js}"></script>
+<script th:src="@{assets/vendor/isotope-layout/isotope.pkgd.min.js}"></script>
+<script th:src="@{assets/vendor/venobox/venobox.min.js}"></script>
+<script th:src="@{assets/vendor/aos/aos.js}"></script>
+
+<!-- Template Main JS File -->
+<script th:src="@{assets/js/main.js}"></script>
+
+</body>
+
+</html>

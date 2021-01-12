@@ -1,10 +1,9 @@
-package pl.monikamisiewicz.garden.repositories;
+package pl.monikamisiewicz.garden.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import pl.monikamisiewicz.garden.models.Plant;
+import pl.monikamisiewicz.garden.model.Plant;
 
-import java.util.List;
 import java.util.Set;
 
 public interface PlantRepository extends JpaRepository<Plant, Long> {

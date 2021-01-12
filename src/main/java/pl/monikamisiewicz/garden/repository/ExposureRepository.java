@@ -1,7 +1,7 @@
-package pl.monikamisiewicz.garden.repositories;
+package pl.monikamisiewicz.garden.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import pl.monikamisiewicz.garden.models.Exposure;
+import pl.monikamisiewicz.garden.model.Exposure;
 
 public interface ExposureRepository extends JpaRepository<Exposure, Long> {
 }
